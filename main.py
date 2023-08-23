@@ -26,6 +26,7 @@ class Planet:
         self.radius = radius
         self.color = color
         self.mass = mass
+        self.orbit = []
 
         self.xv = 0
         self.yv = 0
@@ -59,6 +60,7 @@ class Planet:
 
         self.x += self.xv * Planet.TIME_STEP
         self.y += self.yv * Planet.TIME_STEP
+        self.orbit.append((self.x, self.y))
 
 def main():
     run = True
