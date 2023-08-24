@@ -1,8 +1,9 @@
 import pygame
+pygame.init()
 from planet import Planet
 from config import *
-pygame.init()
 pygame.display.set_caption("Planet Gravity Simulation")
+print(pygame.font.get_fonts())
 
 def main():
     run = True
@@ -28,6 +29,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            if event.type != pygame.KEYDOWN:
+                continue
+            elif event.key == pygame.K_d:
+                sun.mass *=0.9
+            elif event.key == pygame.K_i:
+                sun.mass *= 1.1
+                
 
         for planet in planets:
             planet.updatepos(planets)

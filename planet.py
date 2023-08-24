@@ -34,6 +34,8 @@ class Planet:
             pygame.draw.lines(window, self.color, False, points)
 
         pygame.draw.circle(window, self.color, (x,y), self.radius)
+        controls = FONT.render("(I) - Increase Sun Mass | (D) Decrease Sun Mass", 1, WHITE)
+        window.blit(controls, (WIDTH/2 - controls.get_width()/2, 20))
 
     def calcforce(self, planet):
         planet_x, planet_y = planet.x, planet.y
