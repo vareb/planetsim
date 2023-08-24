@@ -3,7 +3,6 @@ pygame.init()
 from planet import Planet
 from config import *
 pygame.display.set_caption("Planet Gravity Simulation")
-print(pygame.font.get_fonts())
 
 def main():
     run = True
