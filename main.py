@@ -34,6 +34,15 @@ def main():
                 sun.mass *=0.9
             elif event.key == pygame.K_i:
                 sun.mass *= 1.1
+            elif event.key == pygame.K_r:
+                WIN.fill(BACKGROUND)
+                for planet in planets:
+                    planet.reset()
+                earth.yv = 29.783 * 1000
+                mars.yv = 24.077 * 1000
+                mercury.yv = 47.4 * 1000
+                venus.yv = -35.02 * 1000
+
                 
 
         for planet in planets:

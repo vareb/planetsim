@@ -20,6 +20,18 @@ class Planet:
         self.xv = 0
         self.yv = 0
 
+        self.initial_x = x
+        self.initial_y = y
+        self.initalmass = mass
+
+    def reset(self):
+        self.x = self.initial_x
+        self.y = self.initial_y
+        self.xv = 0
+        self.yv = 0
+        self.orbit = []
+        self.mass = self.initalmass
+
     def draw(self, window):
         x = self.x * self.SCALE + WIDTH/2
         y = self.y * self.SCALE + HEIGHT/2
@@ -34,7 +46,7 @@ class Planet:
             pygame.draw.lines(window, self.color, False, points)
 
         pygame.draw.circle(window, self.color, (x,y), self.radius)
-        controls = FONT.render("(I) - Increase Sun Mass | (D) Decrease Sun Mass", 1, WHITE)
+        controls = FONT.render("(I) - Increase Sun Mass | (D) Decrease Sun Mass | (R) Reset", 1, WHITE)
         window.blit(controls, (WIDTH/2 - controls.get_width()/2, 20))
 
     def calcforce(self, planet):
