@@ -1,6 +1,6 @@
 import math
 import pygame
-from config import HEIGHT, WIDTH
+from config import *
 
 class Planet:
     AU = 149.6e6 * 1000
@@ -23,6 +23,16 @@ class Planet:
     def draw(self, window):
         x = self.x * self.SCALE + WIDTH/2
         y = self.y * self.SCALE + HEIGHT/2
+        points = [] #list of scaled points
+
+        for point in self.orbit:
+            xp, yp = point
+            scaled_x = xp * self.SCALE + WIDTH/2
+            scaled_y = yp * self.SCALE + HEIGHT/2
+            points.append((scaled_x, scaled_y))
+        if len(self.orbit) > 1:
+            pygame.draw.lines(window, self.color, False, points)
+
         pygame.draw.circle(window, self.color, (x,y), self.radius)
 
     def calcforce(self, planet):

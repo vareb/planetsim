@@ -2,8 +2,6 @@ import pygame
 from planet import Planet
 from config import *
 pygame.init()
-
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Planet Gravity Simulation")
 
 def main():
